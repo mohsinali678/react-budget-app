@@ -11,6 +11,17 @@ import NavBar from './Components/NavBar';
 import FootBar from './Components/FootBar';
 
 export default class App extends Component {
+  constructor(){
+    super();
+
+    this.state = {
+      transactions : []
+    }
+
+    this.API_BASE = apiURL();
+  }
+
+  
   render() {
     return (
       <div className="App">
