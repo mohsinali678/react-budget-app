@@ -11,6 +11,7 @@ import Home from './Pages/Home';
 import Index from './Pages/Index';
 import New from './Pages/New';
 import Show from './Pages/Show';
+import Edit from './Pages/Edit';
 
 
 //COMPONENTS
@@ -74,7 +75,7 @@ export default class App extends Component {
       )
       .catch(c => console.warn(`Warning: ${c}`));
   };
-  
+
   render() {
     const { transactions } = this.state;
     return (
@@ -94,9 +95,12 @@ export default class App extends Component {
                 <New addBudgetLog={this.addBudgetLog}/>
             </Route>
 
-
             <Route exact path="/transactions/:index">
                 <Show transactions={transactions} deleteBudgetLog={this.deleteBudgetLog}/>
+            </Route>
+
+            <Route path="/transactions/:index/edit">
+                <Edit updateBudgetLog={this.updateBudgetLog}/>
             </Route>
           </Switch>
         </main>
