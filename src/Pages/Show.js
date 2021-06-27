@@ -1,7 +1,5 @@
 import BudgetLogDetails from "../Components/BudgetLogDetails";
 
-import React from 'react'
-
 function Show(props) {
     const {deleteBudgetLog} = props;
     return (

@@ -1,6 +1,6 @@
 import BudgetLogNewForm from "../Components/BudgetLogNewForm"
 
-function New(props) {
+export default function New(props) {
     const {addBudgetLog} = props
     return (
         <div className="New">
@@ -10,4 +10,3 @@ function New(props) {
     )
 }
 
-export default New

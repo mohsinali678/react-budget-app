@@ -12,6 +12,7 @@ import Index from './Pages/Index';
 import New from './Pages/New';
 import Show from './Pages/Show';
 import Edit from './Pages/Edit';
+import FourOFour from './Pages/FourOFour';
 
 
 //COMPONENTS
@@ -76,11 +77,34 @@ export default class App extends Component {
       .catch(c => console.warn(`Warning: ${c}`));
   };
 
+
+  //Update a Budget Log
+  updateBudgetLog = (updatedBudgetLog, index) => {
+    const {transactions} = this.state;
+    axios.put(`${this.API_BASE}/transactions/${index}`, updatedBudgetLog)
+      .then(response => {
+        const tempArray = [...transactions];
+        tempArray[index] = updatedBudgetLog;
+
+        this.setState({
+          transactions:[...tempArray]
+        })
+      },
+      error => console.error(`Error: ${error}`)
+      )
+      .catch(c => console.warn(`Warning: ${c}`));
+  };
+
+
+  // Render Function
   render() {
     const { transactions } = this.state;
+
+
     return (
       <div className="App">
         <NavBar />
+
         <main>
           <Switch>
             <Route exact path="/">
@@ -102,8 +126,13 @@ export default class App extends Component {
             <Route path="/transactions/:index/edit">
                 <Edit updateBudgetLog={this.updateBudgetLog}/>
             </Route>
+
+            <Route path="*">
+                <FourOFour />
+            </Route>
           </Switch>
         </main>
+        
         <FootBar />
       </div>
     )

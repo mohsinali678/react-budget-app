@@ -19,6 +19,19 @@ a {
 }
 
 
+.red{
+  color:red
+}
+
+.green {
+  color:green;
+}
+
+.orange{
+  color:orange
+}
+
+
 table {
   width: 100%;
   margin: auto;
