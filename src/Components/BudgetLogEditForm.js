@@ -21,9 +21,15 @@ export class BudgetLogEditForm extends Component {
 
     handleTextChange = (e) => {
         const {transaction} = this.state;
-        this.setState({
-            transaction: {...transaction, [e.target.id]:e.target.value}
-        })
+        if(Number(e.target.value)){
+            this.setState({
+                transaction: {...transaction, [e.target.id]:Number(e.target.value)}
+            })
+        }else{
+            this.setState({
+                transaction: {...transaction, [e.target.id]:e.target.value}
+            })
+        }
     }
 
 
